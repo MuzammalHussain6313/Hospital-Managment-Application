@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <title>Medicine Directory</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+
+<div class="container">
+
+    <h3>Medicine Directory</h3>
+    <hr>
+    <a th:href="@{/medicines/addMedicine}" class="btn btn-primary btn-sm mb-3">
+        Add New Medicine</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Menufacture Date</th>
+            <th>Expiry Date</th>
+            <th>Type</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempmedicine : ${medicines}">
+            <td th:text="${tempmedicine.name}"/>
+            <td th:text="${tempmedicine.companyName}"/>
+            <td th:text="${tempmedicine.manufactureDate}"/>
+            <td th:text="${tempmedicine.expiryDate}"/>
+            <td th:text="${tempmedicine.type}"/>
+
+            <td><a th:href="@{/medicines/showFormForUpdate(medicineId=${tempmedicine.id})}"
+                   class="btn btn-info btn-sm">Update</a>
+                <a th:href="@{/medicines/delete(medicineId=${tempmedicine.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if (!(confirm('Are you sure you want to delete this Medicine?'))) return false">
+                    Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>
+
+<!-- customers pagination -->
+<!--<nav aria-label="Pagination" th:if="${medicines.totalPages gt 0}">
+	<ul class="pagination justify-content-center font-weight-bold">
+		<li class="page-item" th:classappend="${medicines.number eq 0} ? 'disabled'">
+			<a class="page-link"
+			   th:href="@{/medicines/list?page={id}(id=${medicines.number lt 2 ? 1 : medicines.number})}"
+			   aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		<li class="page-item" th:classappend="${i eq medicines.number + 1} ? 'active'"
+			th:each="i : ${#numbers.sequence( 1, medicines.totalPages, 1)}">
+			<a class="page-link" th:href="@{/medicines/list?page={id}(id=${i})}" th:text="${i}"
+			   th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+		</li>
+		<li class="page-item" th:classappend="${medicines.number + 1 eq medicines.totalPages} ? 'disabled'">
+			<a class="page-link"
+			   th:href="@{/medicines/list?page={id}(id=${medicines.number + 2})}"
+			   aria-label="Next" title="Next Page" data-toggle="tooltip">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+
+-->
+
+
+<!--
+<nav aria-label="Pagination" th:if="${medicines.totalPages gt 0}">
+	<ul class="pagination justify-content-center font-weight-medium">
+		<li class="page-item" th:classappend="${medicines.number eq 0} ? 'disabled'">
+			<a class="page-link svg-icon"
+			   th:href="@{/medicines/list?page={id}(id=${medicines.number lt 2 ? 1 : medicines.number})}"
+			   aria-label="Previous"
+			   title="Previous Page" rel="tooltip">
+				<span aria-hidden="true" data-feather="chevrons-left" width="20" height="20"></span>
+			</a>
+		</li>
+		<li class="page-item" th:classappend="${i eq medicines.number + 1} ? 'active'"
+			th:each="i : ${#numbers.sequence( medicines.number + 1, medicines.totalPages > 10 + medicines.number ? medicines.number + 10 : medicines.totalPages, 1)}">
+			<a class="page-link" th:href="@{/medicines/list?page={id}(id=${i})}" th:text="${i}"
+			   th:title="${'Page '+ i}"
+			   rel="tooltip"></a>
+		</li>
+		<li class="page-item disabled" th:if="${medicines.number + 10 < medicines.totalPages}">
+			<a class="page-link svg-icon" href="#">
+				<span data-feather="more-horizontal" width="20" height="20"></span>
+			</a>
+		</li>
+		<li class="page-item" th:classappend="${medicines.number + 1 eq medicines.totalPages} ? 'disabled'">
+			<a class="page-link svg-icon" th:href="@{/medicines/list?page={id}(id=${medicines.number + 2})}"
+			   aria-label="Next"
+			   title="Next Page" rel="tooltip">
+				<span aria-hidden="true" data-feather="chevrons-right" width="20" height="20"></span>
+			</a>
+		</li>
+	</ul>
+</nav>-->

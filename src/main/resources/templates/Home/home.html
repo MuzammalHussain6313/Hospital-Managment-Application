@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <link rel="stylesheet" href="/Home/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Home/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/Home/css/Article-List.css">
+    <link rel="stylesheet" href="/Home/css/styles.css">
+</head>
+
+<body>
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+<div class="article-list">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Hospital Management</h2>
+            <p class="text-center">Currently, hospitals are largely staffed by professional physicians, surgeons,
+                nurses, and allied health practitioners, whereas in the past, this work was usually performed by the
+                members of founding religious orders or by volunteers</p>
+        </div>
+        <div class="row articles">
+            <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="/Home/img/1.jpg"></a>
+                <h3 class="name">Doctor</h3>
+                <p class="description">Doctors make people healthier. When people get sick, doctors figure out why. They
+                    give people medicine and other kinds of treatment. They also give advice about diet, exercise, and
+                    sleep.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a></div>
+            <div
+                    class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="/Home/img/2.jpg"></a>
+                <h3 class="name">Hospital</h3>
+                <p class="description">A hospital is a health care institution providing patient treatment with
+                    specialized medical and nursing staff and medical equipment.</p><a class="action" href="#"><i
+                        class="fa fa-arrow-circle-right"></i></a></div>
+            <div
+                    class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="/Home/img/3.jpg"></a>
+                <h3 class="name">Medicines</h3>
+                <p class="description">Pharmacy is the science and technique of preparing, dispensing, and reviewing
+                    drugs and providing additional clinical services. It is a health profession that links health
+                    sciences with pharmaceutical sciences and aims to ensure the safe, effective, and affordable use of
+                    drugs.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a></div>
+        </div>
+    </div>
+</div>
+<script src="/Home/js/jquery.min.js"></script>
+<script src="/Home/bootstrap/js/bootstrap.min.js"></script>
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>

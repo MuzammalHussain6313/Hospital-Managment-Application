@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <link rel="stylesheet" href="/Contact-US/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Contact-US/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/Contact-US/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/Contact-US/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/Contact-US/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/Contact-US/css/styles.css">
+</head>
+
+<body>
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+<div class="contact-clean">
+    <form action="#" th:action="@{/Home/save-contact}"th:object="${contact}" method="POST">
+        <h2 class="text-center">Contact us</h2>
+        <div class="form-group"><input class="form-control" type="text" th:field="*{name}" name="name" placeholder="Name"></div>
+        <div class="form-group"><input class="form-control is-invalid" type="email" name="email" th:field="*{email}" placeholder="Email">
+<!--            <small class="form-text text-danger">Please enter a correct email address.</small>-->
+        </div>
+        <div class="form-group"><textarea class="form-control" name="message" th:field="*{message}" placeholder="Message"
+                                          rows="14"></textarea></div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit"
+                    onclick="alert('Thank You to Sending message Us. We send you an email.')">send</button>
+        </div>
+    </form>
+</div>
+<script src="/Contact-US/js/jquery.min.js"></script>
+<script src="/Contact-US/bootstrap/js/bootstrap.min.js"></script>
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>

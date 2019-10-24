@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <title>Save medicine</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+
+<div class="form-row">
+    <div class="form-group col-md-3"></div>
+    <div class="form-group col-md-6">
+
+        <div class="container">
+
+            <h3>medicine Directory</h3>
+            <br>
+
+            <p class="h4 mb-10">Save medicine</p>
+
+            <form action="#" th:action="@{/medicines/save}"
+                  th:object="${medicine}" method="POST">
+
+                <!-- Add hidden form field to handle update -->
+                <input type="hidden" th:field="*{id}" />
+
+                <input type="text" th:field="*{name}"
+                       class="form-control mb-4 col-10" placeholder="Medicine name">
+
+                <input type="text" th:field="*{companyName}"
+                       class="form-control mb-4 col-10" placeholder="Company name">
+
+                <input type="date" th:field="${medicine.manufactureDate}"
+                       class="form-control mb-4 col-10" placeholder="Manufacture Date">
+
+                <input type="date" th:field="${medicine.expiryDate}"
+                       class="form-control mb-4 col-10" placeholder="Expiry Date">
+
+                <input type="text" th:field="*{type}"
+                       class="form-control mb-4 col-10" placeholder="Tablet, Capsole , ani-biotik">
+
+                <button type="submit" class="btn btn-info col-4">Save</button>
+
+            </form>
+
+            <br>
+            <a th:href="@{/medicines/list}">Back to Medicines List</a>
+
+        </div>
+
+    </div>
+    <div class="form-group col-md-3"></div>
+</div>
+
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

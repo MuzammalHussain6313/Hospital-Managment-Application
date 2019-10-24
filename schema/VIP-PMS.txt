@@ -1,0 +1,113 @@
+DROP SCHEMA IF EXISTS `pms`;
+
+CREATE SCHEMA `pms`;
+
+use `pms`;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `disease`;
+
+CREATE TABLE `disease` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `diseaseName` varchar(45) DEFAULT NULL,
+  `discription` varchar(128) DEFAULT NULL,
+  `doctorID` int(11) DEFAULT NULL,
+  
+  PRIMARY KEY (`id`),
+  
+  UNIQUE KEY `TITLE_UNIQUE` (`diseaseName`),
+  
+  KEY `FK_DOCCTOR_idx` (`doctorID`),
+  
+  CONSTRAINT `FK_DOCTOR` 
+  FOREIGN KEY (`doctorID`) 
+  REFERENCES `doctor` (`id`)   
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `doctor`;
+
+CREATE TABLE `doctor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `doctorName` varchar(145) DEFAULT NULL,
+  `fatherName` varchar(145) DEFAULT NULL,
+  `gender` varchar(12) DEFAULT NULL,
+  `cnic` varchar(28) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+    
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `patient`;
+
+CREATE TABLE `patient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `patientName` varchar(145) DEFAULT NULL,
+  `fatherName` varchar(145) DEFAULT NULL,
+  `gender` varchar(12) DEFAULT NULL,
+  `cnic` varchar(28) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+  `doctorName` int(11) DEFAULT NULL,
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_DOCCTOR_idx` (`doctorName`),
+  
+  CONSTRAINT `FK_DOCTOR_NAME` 
+  FOREIGN KEY (`doctorName`) 
+  REFERENCES `doctor` (`id`)
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+  
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `medicine`;
+
+CREATE TABLE `medicine` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `medicinename` varchar(128) DEFAULT NULL,
+  `manufactureDate` date DEFAULT NULL,
+  `expiryDate` date DEFAULT NULL,
+  
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `TITLE_UNIQUE` (`medicineName`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `patient_medicine`;
+
+CREATE TABLE `patient_medicine` (
+  `patientID` int(11) NOT NULL,
+  `medicineID` int(11) NOT NULL,
+  
+  PRIMARY KEY (`patientID`,`medicineID`),
+  
+  KEY `FK_PATIENT_idx` (`patientID`),
+  
+  CONSTRAINT `FK_PATIENT_ID` 
+  FOREIGN KEY (`patientID`) 
+  REFERENCES `patient` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+  CONSTRAINT `FK_MEDICINE_ID` 
+  FOREIGN KEY (`medicineID`) 
+  REFERENCES `medicine` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `patient_disease`;
+
+CREATE TABLE `patient_disease` (
+  `patientID` int(11) NOT NULL,
+  `diseaseID` int(11) NOT NULL,
+  
+  PRIMARY KEY (`patientID`,`diseaseID`),
+  
+  CONSTRAINT `FK_PATIENTS_ID` 
+  FOREIGN KEY (`patientID`) 
+  REFERENCES `patient` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+  CONSTRAINT `FK_DISEASE_ID` 
+  FOREIGN KEY (`diseaseID`) 
+  REFERENCES `disease` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SET FOREIGN_KEY_CHECKS = 1;

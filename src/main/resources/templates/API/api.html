@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <link rel="stylesheet" href="/Home/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Home/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/Home/css/Article-List.css">
+    <link rel="stylesheet" href="/Home/css/styles.css">
+</head>
+
+<body>
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+<div class="article-list">
+    <div class="team-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">API's</h2>
+                <p class="text-center">API return single as well as collection of objects. Delete, Get, POST etc...</p>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">Patients</h3>
+                        <p>Patient API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/patients" target="_blank">http://localhost:9090/patients</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">Doctors</h3>
+                        <p>Doctors API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/doctors" target="_blank">http://localhost:9090/doctors</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">Dedicines</h3>
+                        <p>medicines API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/medicines" target="_blank">http://localhost:9090/medicines</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">Diseases</h3>
+                        <p>Diseases API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/diseases" target="_blank">http://localhost:9090/diseases</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">Users</h3>
+                        <p>Users API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/users" target="_blank">http://localhost:9090/users</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div>
+                        <h3 class="name">roles</h3>
+                        <p>User Roles API with complete operations.</p><br>
+                        <br><a href="http://localhost:9090/roles" target="_blank">http://localhost:9090/roles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/Home/js/jquery.min.js"></script>
+<script src="/Home/bootstrap/js/bootstrap.min.js"></script>
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>

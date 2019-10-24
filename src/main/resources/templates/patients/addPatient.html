@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <title>Save Patient</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+
+<div class="form-row">
+    <div class="form-group col-md-3"></div>
+    <div class="form-group col-md-6">
+        <div class="container">
+
+            <h3>Patient Directory</h3>
+            <br>
+
+            <p class="h4 mb-10">Save Patient</p>
+
+            <form action="#" th:action="@{/patients/save}"
+                  th:object="${patient}" method="POST">
+
+                <!-- Add hidden form field to handle update -->
+                <input type="hidden" th:field="*{id}" />
+
+                <input type="text" th:field="*{name}"
+                       class="form-control mb-4 col-10" placeholder="Patient name">
+
+                <input type="text" th:field="*{fatherName}"
+                       class="form-control mb-4 col-10" placeholder="Father name">
+
+                <select th:field="*{gender}"
+                        class="form-control mb-4 col-10" placeholder="Gender">
+                    <option th:value="'Male'" th:text="Male"></option>
+                    <option th:value="'Female'" th:text="Female"></option>
+                </select>
+                <input type="text" th:field="*{CNIC}"
+                       class="form-control mb-4 col-10" placeholder="CNIC">
+
+                <input type="date" th:field="${patient.dateOfBirth}"
+                       class="form-control mb-4 col-10" placeholder="Date Of Birth">
+
+                <input type="text" th:field="*{diseaseHistory}"
+                       class="form-control mb-4 col-10" placeholder="Disease History">
+
+                <input type="text" th:field="*{prescription}"
+                       class="form-control mb-4 col-10" placeholder="Prescription">
+
+                <select th:field="*{doctor}"
+                        class="form-control mb-4 col-10" placeholder="Select Doctor">
+                    <option th:each="tempDoctor : ${doctorList}" th:value="${tempDoctor.id}" th:text="${tempDoctor.name}"></option>
+
+                </select>
+
+                <!--<select
+                        class="form-control mb-4 col-4" placeholder="Select Doctor">
+                    <option th:each="tempDoctor : ${doctorList}" th:value="${tempDoctor}" th:text="${tempDoctor}"></option>
+
+                </select>-->
+
+                <button type="submit" class="btn btn-info col-4">Save</button>
+
+            </form>
+
+            <br>
+            <a th:href="@{/patients/list}">Back to Patient List</a>
+
+        </div>
+
+    </div>
+    <div class="form-group col-md-3"></div>
+</div>
+
+
+
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

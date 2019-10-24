@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/Footer/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Footer/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/Footer/css/Article-List.css">
+    <link rel="stylesheet" href="/Footer/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/Footer/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/nav-bar/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/nav-bar/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/nav-bar/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="/nav-bar/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/nav-bar/css/styles.css">
+    <link rel="stylesheet" href="/nav-bar/css/Team-Boxed.css">
+    <title>Save disease</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav-bar/nav-bar :: nav"></div>
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+
+    </div>
+    <div class="form-group col-md-6">
+
+        <div class="container">
+            <h3>disease Directory</h3>
+            <br>
+            <p class="h4 mb-12">Save disease</p>
+            <form action="#" th:action="@{/diseases/save}"
+                  th:object="${disease}" method="POST">
+                <!-- Add hidden form field to handle update -->
+                <input type="hidden" th:field="*{id}" />
+                <input type="text" th:field="*{diseaseName}"
+                       class="form-control mb-4 col-10" placeholder="Disease Name">
+                <input type="text" th:field="*{discription}"
+                       class="form-control mb-4 col-10" placeholder="Discription">
+                <button type="submit" class="btn btn-info col-4">Save</button>
+            </form>
+            <br>
+            <a th:href="@{/diseases/list}">Back to Disease List</a>
+        </div>
+
+    </div>
+    <div class="form-group col-md-3">
+
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/Footer/Footer :: footer"></div>
+
+</html>
+
+
+
+
+
+
+
+
+
+

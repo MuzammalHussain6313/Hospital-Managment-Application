@@ -1,0 +1,85 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">-->
+<!--    <title>Untitled</title>-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/bootstrap/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/Contact-Form-Clean.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/Login-Form-Dark.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/Navigation-with-Button.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/Registration-Form-with-Photo.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/styles.css">-->
+<!--    <link rel="stylesheet" href="../../../static/nav-bar/css/Team-Boxed.css">-->
+<!--</head>-->
+
+<!--<body>-->
+<div th:fragment="nav">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/Home/home-page}">Patient Managment System</a>
+                <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                    <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse"
+                     id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" th:href="@{/patients/list}">Patients</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" th:href="@{/doctors/list}">Doctors</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" th:href="@{/diseases/list}">Diseases</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" th:href="@{/medicines/list}">Medicines</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" th:href="@{/Home/contact-US}">Contact US</a>
+                        </li>
+<!--                        <li class="dropdown">-->
+<!--                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Page 1-->
+<!--                                <span class="caret"></span></a>-->
+<!--                            <ul class="dropdown-menu" role="menu">-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-1</a></li>-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-2</a></li>-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-3</a></li>-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-1</a></li>-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-2</a></li>-->
+<!--                                <li><a class="dropdown-item" role="presentation" href="#">Page 1-3</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true">Download </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" onclick="clickDownload()">Patient Reports</a>
+                                <a class="dropdown-item" role="presentation" onclick="clickDownload()">Doctor Reports</a>
+                                <a class="dropdown-item" role="presentation" onclick="clickDownload()">Medicines reports</a>
+<!--                                <a class="dropdown-item" role="presentation" th:href="@{/reports/medicine-report}">Medicines reports</a>-->
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="navbar-text actions">
+                        <a class="login" th:href="@{/Home/login}">Log In</a>
+                        <a class="btn btn-light action-button" role="button" th:href="@{/Home/signUP}">Sign Up</a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<script>
+    clickDownload()
+    {
+        alert("OOP's ! There id not report to be download.");
+    }
+</script>
+    <script src="/nav-bar/js/jquery.min.js"></script>
+    <script src="/nav-bar/bootstrap/js/bootstrap.min.js"></script>
+<!--</body>-->
+
+<!--</html>-->
