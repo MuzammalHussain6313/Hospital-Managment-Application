@@ -21,6 +21,10 @@ Features in our Application.<br/>
 •	REST API end points for GET, POST, UPDATE, DELETE and PATCH the entities. <br/>
 •	Data is given in JSON formate and recieved in JSON.
 
+<h3><a href="https://youtu.be/zz3wUwT6s9Q">Click here to view Demo video</a></h3>
+
+<h3>Screenshots</h3>
+
 <p>Home.</p><br>
 <img src="assests/1Capture.PNG" width="700" height="400">
 <hr>
