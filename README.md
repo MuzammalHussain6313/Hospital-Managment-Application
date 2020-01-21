@@ -4,6 +4,7 @@ Tools and technologies <br/>
 •	HTML, CSS, Bootstrat and Spring thmeleafe used for front-end.<br/>
 •	mySQL database and Spring Boot and Hibernate used for backed work. </br><br/>
 Features in our Application.<br/>
+
 1.	Manage Records (CRUD)<br/>
 •	Manage Doctor, patient, disease, medicine records .<br/>
 •	Manage Contact service to help the app users.<br/>
