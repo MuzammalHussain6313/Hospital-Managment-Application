@@ -47,6 +47,7 @@ public class Doctor
     {
 
     }
+
     public Doctor(String name, String fatherName, String gender, String CNIC,String email, Date dateOfBirth)
     {
         Name = name;

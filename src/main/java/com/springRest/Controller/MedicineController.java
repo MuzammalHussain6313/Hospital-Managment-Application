@@ -2,17 +2,20 @@ package com.springRest.Controller;
 
 //import com.springRest.DAO.MedicineRepository;
 import com.springRest.enitity.Medicine;
+import com.springRest.enitity.Patient;
 import com.springRest.service.MedicineService;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.PageRequest;
 //import org.springframework.data.domain.Sort;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 //import javax.servlet.http.HttpServletRequest;
+import javax.persistence.EntityManager;
 import java.util.List;
 
 
@@ -23,7 +26,9 @@ public class MedicineController
     private MedicineService medicineService;
     private List<Medicine> themedicines;
 
-    //@Autowired
+    @Autowired
+    private EntityManager em;
+
     public MedicineController(MedicineService medicineService)
     {
         //this.medicineRepository = medicineRepository;
@@ -76,6 +81,15 @@ public class MedicineController
     @GetMapping("/delete")
     public String deletemedicine(@RequestParam("medicineId") int theID)
     {
+        Medicine a = em.find(Medicine.class, theID);
+        for (Patient b : a.getPatientList()) {
+            if (b.getMedicineList().size() == 1) {
+                em.remove(b);
+            } else {
+                b.getMedicineList().remove(a);
+            }
+        }
+        em.remove(a);
         medicineService.deleteById(theID);
         return "redirect:/medicines/list";
     }

@@ -5,18 +5,19 @@ import com.springRest.enitity.Doctor;
 import com.springRest.service.DiseaseService;
 import com.springRest.service.DoctorService;
 import com.springRest.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
-
-
 @Controller
 @RequestMapping("/diseases")
 public class DiseaseController
 {
-
     // load employee data
     private DoctorService doctorService;
     private PatientService patientService;
@@ -48,7 +49,6 @@ public class DiseaseController
     @PostMapping("/save")
     public String saveDoctor(@ModelAttribute("disease") Disease theDoctor)
     {
-
         diseaseService.save(theDoctor);
         return "redirect:/diseases/list";
     }
@@ -60,14 +60,24 @@ public class DiseaseController
         return "disease/addDisease";
     }
 
+    @Autowired
+    @PersistenceContext
+    private EntityManager em;
     @GetMapping("/delete")
+    @Transactional
     public String deleteDoctor(@RequestParam("diseaseId") int theID)
     {
-        diseaseService.deleteById(theID);
-        return "redirect:/disease/list";
+        Disease a = em.find(Disease.class, theID);
+        for (Doctor b : a.getDoctors()) {
+            if (b.getDisease() !=null)
+            {
+                em.remove(a);
+            }
+        }
+        em.remove(a);
+        //diseaseService.deleteById(theID);
+        return "redirect:/diseases/list";
     }
-
-
 }
 
 

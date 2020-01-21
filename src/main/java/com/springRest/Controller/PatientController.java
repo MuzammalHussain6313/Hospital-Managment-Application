@@ -19,6 +19,8 @@ import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+
 
 @Controller
 @RequestMapping("/patients")
@@ -30,6 +32,8 @@ public class PatientController
     private DoctorService doctorService;
     private DiseaseService diseaseService;
     private List<Patient> thePatients;
+    @Autowired
+    private EntityManager em;
 
     public PatientController(PatientService patientService, DoctorService doctorService, DiseaseService diseaseService)
     {

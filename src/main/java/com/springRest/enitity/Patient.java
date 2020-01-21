@@ -181,4 +181,14 @@ public class Patient
     {
         Prescription = prescription;
     }
+
+    public List<Medicine> getMedicineList()
+    {
+        return medicineList;
+    }
+
+    public void setMedicineList(List<Medicine> medicineList)
+    {
+        this.medicineList = medicineList;
+    }
 }
