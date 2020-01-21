@@ -2,8 +2,7 @@
 <h3>Frontend Work</h3>
 Tools and technologies <br/>
 •	HTML, CSS, Bootstrat and Spring thmeleafe used for front-end.<br/>
-•	mySQL database and Spring Boot and Hibernate used for backed work. 
-
+•	mySQL database and Spring Boot and Hibernate used for backed work. </br><br/>
 Features in our Application.
 1.	Manage Records (CRUD)<br/>
 •	Manage Doctor, patient, disease, medicine records .<br/>
@@ -18,7 +17,7 @@ Features in our Application.
 •	Reports are downloaded montly, yearly and daily bases. <br/>
 
 4.	API <br/>
-•	REST API end points for GET, POST, UPDATE, DELETE AND PATCH the entities. <br/>
+•	REST API end points for GET, POST, UPDATE, DELETE and PATCH the entities. <br/>
 •	Data is given in JSON formate and recieved in JSON.
 
 <p>Home.</p><br>
